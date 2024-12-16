@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devgad Hapus</title>
+    <style>
+        h1 {
+            color: orange;
+        }
+    </style>
+</head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            padding: 0;
+            background-color: white;
+        }
+        
+        header {
+            background-color: white;
+            color: #ffe6e6;
+            padding: 20px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        nav {
+            background-color: white;
+            color: orange;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: orange;
+        }
+        p {
+            color: #666;
+        }
+
+        .card img {
+            width: 300px;
+            height: 300px;
+            transition: transform 0.5s ease;
+        }
+        
+        .card img:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .contact-info div {
+            flex: 1;
+            margin-right: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h2 {
+            margin-bottom: 10px;
+            color: #ff6600;
+        }
+
+        .contain {
+        display: flex;
+        justify-content: space-between; 
+        }
+        
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+            background-color: white; 
+            width: 100%%; 
+            height: 100%%; 
+        }
+
+        .btn-login,
+        .btn-signup {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login,
+        .btn-signup{
+            background-color: orange;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent; /* Make footer transparent */
+            padding: 20px;
+        }
+    
+        footer ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            color: black; /* Change text color to black */
+        }
+    
+        footer ul li {
+            margin-right: 10px;
+        }
+    
+        footer p {
+            margin: 0;
+            color: black; /* Ensure the paragraph text is also black */
+        }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Welcome To Devgad Alphanso</h1>
+
+    </header>
+    <nav>
+        <a href="/index/">Home</a>
+        <a href="/add_product/">Shop Now</a>
+        <a href="/track_order/">Track Order</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/login/" class="btn-login">Login</a>
+        <a href="/register/" class="btn-signup">Signup</a>
+
+    </nav>
+
+    {% block start %}
+
+
+    {% endblock %}
+
+    <footer>
+        <ul>
+            <li><b>Kokan Meva</b>
+                <ul>
+                    <li><a href="#">Devgad Alphanso</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Mango Pulp</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Cashews</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Kokum</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><b>Quick Links</b>
+                <ul>
+                    <li><a href="/index/">Home</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/shop_now/">Shop Now</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><b>Contact Details</b>
+                <ul>
+                    <p>Viraj Vijay Thukrul</p>
+                </ul>
+                <ul>
+                    <p>Plt no.204, Ghaskopri Shanimandir, Virar East</p>
+                </ul>
+                <ul>
+                    <p>Mumbai, Maharastra</p>
+                </ul>
+                <ul>
+                    <p>+91 8080687095</p>
+                </ul>
+            </li>
+        </ul>
+        <!-- WhatsApp Logo and Link -->
+        <a href="https://wa.me/918080687095?text=Hello%20Viraj,%20I%20would%20like%20to%20inquire%20about%20your%20mango%20products" target="_blank">
+            <img src="https://i.postimg.cc/DwSb2bq5/whatsapp.png" alt="Viraj Tukarul Mango Business" style="width: 50px; height: 50px;"/>
+        </a>
+        <!-- Gmail Logo and Link -->
+        <a href="mailto:your-email@example.com?subject=Inquiry%20about%20Mango%20Products&body=Hello%20Viraj,%20I%20would%20like%20to%20inquire%20about%20your%20mango%20products">
+            <img src="https://i.postimg.cc/rp6zMZyF/gmail.png" alt="Viraj Tukarul Mango Business Email" style="width: 50px; height: 50px;"/>
+        </a>        
+        
+        <img src="https://ideogram.ai/assets/image/lossless/response/G-0bAE1lSBy2Va4wscnZjg" alt="Logo" style="width: 150px; height: 150px;">
+    </footer>
+       
+</body>
+</html>

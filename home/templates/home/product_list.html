@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block start %}
+<style>
+  /* General Styles */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2, h3 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  /* Zoom on Image */
+  .zoom:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+  /* Gallery Styles */
+  .gallery-container {
+    display: grid;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-header h2 {
+    font-size: 3em;
+    color: #333;
+  }
+
+  /* Flexbox Layout */
+  .section-content {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .text-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .text-content:hover {
+    transform: scale(1.02);
+  }
+
+  .image-gallery {
+    flex: 1;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .image-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Full-screen Overlay Styles */
+  .full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .full-screen img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .section-content {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<div class="gallery-container">
+
+  <div class="section-content">
+    <!-- Text Content -->
+    <div class="text-content">
+      <h3>About Devgad Alphonso</h3>
+      <p><strong>Devgad Alphonso</strong> is renowned for its exceptional quality and rich flavor, often considered one of the best varieties of mango in India. Grown in the fertile lands of Devgad in Maharashtra, these mangoes are characterized by their sweet, juicy pulp and unique aroma. The Devgad Alphonso season typically runs from March to June, attracting mango lovers from around the world who seek out this delicious and sought-after fruit.</p>
+      <p><strong>Location:</strong> Devgad, Maharashtra, India</p>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+      <img src="https://i.postimg.cc/zfMX9jpz/Screenshot-2024-10-29-114247.png" alt="Devgad Fort 1" class="zoom" onclick="openFullScreen(this);">
+      <img src="https://i.postimg.cc/tJGRg4L8/IMG-20210508-112808.jpg" alt="Devgad Fort 2" class="zoom" onclick="openFullScreen(this);">
+      <img src="https://i.postimg.cc/Wp0bH0ZV/IMG-20220521-150632.jpg" alt="Devgad Fort 3" class="zoom" onclick="openFullScreen(this);">
+      <img src="https://i.postimg.cc/xTRj0YgF/IMG-20200408-212927.jpg" alt="Devgad Fort 4" class="zoom" onclick="openFullScreen(this);">
+    </div>
+  </div>
+</div>
+
+<!-- Full-screen overlay -->
+<div class="full-screen" id="fullScreenOverlay" onclick="closeFullScreen();">
+  <img id="fullScreenImage" src="" alt="Full Screen Image">
+</div>
+
+<script>
+  function openFullScreen(img) {
+    const fullScreenOverlay = document.getElementById('fullScreenOverlay');
+    const fullScreenImage = document.getElementById('fullScreenImage');
+    fullScreenImage.src = img.src; // Set the source of the full-screen image
+    fullScreenOverlay.style.display = 'flex'; // Show the overlay
+  }
+
+  function closeFullScreen() {
+    const fullScreenOverlay = document.getElementById('fullScreenOverlay');
+    fullScreenOverlay.style.display = 'none'; // Hide the overlay
+  }
+</script>
+
+{% endblock %}

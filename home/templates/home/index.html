@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Sale</title>
+    <style>
+        .showcase {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .showcase img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .info {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+        }
+        
+        .info h2 {
+            margin-bottom: 10px;
+            color: #333;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .info p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .product p {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+
+        /* Carousel styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        .carousel-slide {
+            display: flex;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;  /* Make each image take up 100% of the container's width */
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+  <section class="showcase">
+    <div class="content">
+        <div class="image">
+            <img src="https://i.postimg.cc/zfMX9jpz/Screenshot-2024-10-29-114247.png" alt="Fresh Fruits" height="800" width="700">
+        </div>
+        <div class="info">
+            <h2 style="color: red;" id="seasonal-fruits">Seasonal Fruits Now Available!</h2>
+            <p>
+                Discover the exquisite taste of Devgad Alphonso Mangoes, grown in the lush, fertile lands of Devgad, Maharashtra.
+
+                Why Choose Devgad Mangoes?
+                Rich Flavor: Known for their unparalleled sweetness, a tangy touch, and smooth, non-fibrous texture, Devgad mangoes are a treat to the senses.
+                Premium Quality: Grown in the coastal Konkan region, these mangoes are handpicked for their superior quality, ensuring each bite is packed with flavor.
+                Golden Beauty: With their golden-yellow color and slight reddish tinge, Devgad mangoes are a feast for both the eyes and the palate.
+                Seasonal Delight: Available from March to June, these mangoes are a seasonal favorite, making them an exclusive indulgence.
+                Global Recognition: Exported worldwide, Devgad mangoes are trusted for their exceptional quality and unique taste, making them the top choice for mango lovers across the globe.
+                From Our Farms to Your Table
+                Experience the essence of nature with every mango. Our Devgad Alphonso mangoes are grown in the pristine conditions of Maharashtra’s Konkan coast, nurtured by the rich soil and tropical climate that brings out the best in them.
+
+                Order Now and Savor the Taste of Freshness
+                Order your box of Devgad mangoes today and treat yourself to the finest mangoes that nature has to offer. Whether you’re enjoying them fresh, as a smoothie, or in your favorite recipes, Devgad mangoes promise to deliver a burst of tropical bliss with every bite.
+            </p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Carousel Section -->
+  <section class="carousel-container">
+      <div class="carousel-slide">
+          <div class="carousel-images">
+              <img src="https://i.postimg.cc/Wp0bH0ZV/IMG-20220521-150632.jpg" alt="Mango">
+              <img src="https://i.postimg.cc/tJGRg4L8/IMG-20210508-112808.jpg" alt="Banana">
+              <img src="https://i.postimg.cc/Wp0bH0ZV/IMG-20220521-150632.jpg" alt="Apple">
+          </div>
+      </div>
+      <div class="carousel-nav">
+          <button class="prev" onclick="prevSlide()">&#10094;</button>
+          <button class="next" onclick="nextSlide()">&#10095;</button>
+      </div>
+  </section>
+
+  <section id="products" class="products">
+    <div class="product">
+        <img src="https://i.postimg.cc/Wp0bH0ZV/IMG-20220521-150632.jpg" alt="Mango">
+        <h3>Mango</h3>
+        <p>Sweet and juicy mangoes. Price: $10/kg</p>
+    </div>
+    <div class="product">
+        <img src="https://i.postimg.cc/Wp0bH0ZV/IMG-20220521-150632.jpg" alt="Apple">
+        <h3>Apple</h3>
+        <p>Fresh and crispy apples. Price: $8/kg</p>
+    </div>
+    <div class="product">
+        <img src="https://i.postimg.cc/tJGRg4L8/IMG-20210508-112808.jpg" alt="Banana">
+        <h3>Banana</h3>
+        <p>Ripe and delicious bananas. Price: $5/kg</p>
+    </div>
+    <div class="product">
+        <img src="https://i.postimg.cc/tJGRg4L8/IMG-20210508-112808.jpg" alt="Banana">
+        <h3>Banana</h3>
+        <p>Ripe and delicious bananas. Price: $5/kg</p>
+    </div>
+  </section>
+
+  <script>
+      let seasonalText = document.getElementById('seasonal-fruits');
+      
+      setInterval(() => {
+          if (seasonalText.style.opacity === '0') {
+              seasonalText.style.opacity = '1';
+          } else {
+              seasonalText.style.opacity = '0';
+          }
+      }, 1000);
+
+      let currentSlide = 0;
+
+      function showSlide(index) {
+          const slides = document.querySelectorAll('.carousel-images img');
+          if (index >= slides.length) currentSlide = 0;
+          if (index < 0) currentSlide = slides.length - 1;
+          const newTransform = -currentSlide * 100 + '%';
+          document.querySelector('.carousel-images').style.transform = `translateX(${newTransform})`;
+      }
+
+      function nextSlide() {
+          currentSlide++;
+          showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+          currentSlide--;
+          showSlide(currentSlide);
+      }
+
+      // Show the first slide initially
+      showSlide(currentSlide);
+
+      // Automatically change the slides every 3 seconds
+      setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
+{% endblock %}

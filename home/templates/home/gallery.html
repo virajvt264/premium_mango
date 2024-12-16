@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block start %}
+<style>
+    /* Zoom effect on hover */
+    img.zoom:hover {
+        transform: scale(1.1); /* Adjust the scale value as needed */
+        transition: transform 0.3s ease; /* Smooth transition */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
+    }
+
+    /* Full-screen overlay style */
+    .full-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .full-screen img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px; /* Rounded corners for the full-screen image */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Soft shadow around the full-screen image */
+    }
+
+    /* Image gallery container */
+    .image-gallery {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    /* Image item style */
+    .image-gallery img {
+        width: 100%;
+        height: 250px; /* Fixed height for all images */
+        object-fit: cover; /* Ensure images fill the container while preserving aspect ratio */
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Add some spacing around the gallery images */
+    .image-gallery img:hover {
+        transform: scale(1.05); /* Slightly scale up on hover */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Light shadow on hover */
+    }
+
+    /* Close button style */
+    .close-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .close-button:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+</style>
+
+<body>
+    <div class="image-gallery">
+        <!-- Image Gallery -->
+        <img src="https://i.postimg.cc/zfMX9jpz/Screenshot-2024-10-29-114247.png" alt="Devgad Fort 1" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/tJGRg4L8/IMG-20210508-112808.jpg" alt="Devgad Fort 2" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/Wp0bH0ZV/IMG-20220521-150632.jpg" alt="Devgad Fort 3" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/xTRj0YgF/IMG-20200408-212927.jpg" alt="Devgad Fort 4" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/VL3NXrX6/IMG-20220519-121154.jpg" alt="Devgad Fort 5" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/1tPnwnh6/IMG-20220503-171705.jpg" alt="Devgad Fort 6" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/15Yq23wh/IMG-20220503-172134.jpg" alt="Devgad Fort 7" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/Z5BdSzx9/IMG-20220503-172711.jpg" alt="Devgad Fort 8" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/mkgPpvrg/IMG-20220503-174657.jpg" alt="Devgad Fort 9" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/xTRj0YgF/IMG-20200408-212927.jpg" alt="Devgad Fort 10" class="zoom" onclick="openFullScreen(this);">
+        <img src="https://i.postimg.cc/xTRj0YgF/IMG-20200408-212927.jpg" alt="Devgad Fort 11" class="zoom" onclick="openFullScreen(this);">
+    </div>
+
+    <!-- Full-screen overlay -->
+    <div class="full-screen" id="fullScreenOverlay" onclick="closeFullScreen();">
+        <img id="fullScreenImage" src="" alt="Full Screen Image">
+    </div>
+
+    <script>
+        function openFullScreen(img) {
+            const fullScreenOverlay = document.getElementById('fullScreenOverlay');
+            const fullScreenImage = document.getElementById('fullScreenImage');
+            fullScreenImage.src = img.src; // Set the source of the full-screen image
+            fullScreenOverlay.style.display = 'flex'; // Show the overlay
+        }
+
+        function closeFullScreen() {
+            const fullScreenOverlay = document.getElementById('fullScreenOverlay');
+            fullScreenOverlay.style.display = 'none'; // Hide the overlay
+        }
+    </script>
+</body>
+
+{% endblock %}
